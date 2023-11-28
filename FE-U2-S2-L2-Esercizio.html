@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <!-- Abbiamo bisogno di un sito web per un'agenzia di viaggi!
+
+In questa pagina aggiungerai destinazioni di posti che sogni di visitare in futuro.
+
+Il progetto non richiede alcuna customizzazione di CSS, dovrai crearlo interamente usando le classi di bootstrap, sia per quello che riguarda il layout che lo stile.
+
+
+Testa frequentemente il tuo lavoro nelle 3 principali risoluzioni (mobile, tablet, desktop) usando i developer tools del browser nella sezione emulazione device, per una maggiore precisione.
+
+Inizia utilizzando i componenti esistenti di Bootstrap 5 per creare la tua pagina (modificali all'occorrenza utilizzando le utility classes di bootstrap: colori, spazi, margini, dimensioni etc...)
+Usa container > row > col-* in questo ordine per ottenere un layout responsive perfetto.
+
+Esercizi:
+
+1) Implementa una navbar con questi elementi di menu:
+Home
+Saldi
+Welcome Summer
+Last Minute
+Recensioni
+
+Collegherai ogni sezione della pagina agli elementi del menu corrispondenti. 
+
+2) Aggiungi un logo alla navbar, un qualsiasi logo di agenzia di viaggi, anche inventata.
+
+3) Aggiungi una sezione introduttiva con il nome, il payoff dell'agenzia, 
+una breve descrizione in corsivo e una call-to-action (bottone) "Prenota ora" di colore azzurro chiaro e testo bianco e grassetto
+
+Il background della sezione sarà grigio chiaro e con bordi arrotondati e del padding generoso all'interno
+
+4) Implementa la sezione "Saldi". Qui mostrerai 4 destinazioni.
+
+In questa sezione dovranno esserci:
+
+4 card per destinazioni per linea a schermo grande - desktop (quattro sulla stessa linea)
+3 card per destinazioni per linea a schermo medio  - tablet  (una dovrà scomparire)
+2 card per destinazioni per linea a schermo piccolo - mobile (due per linea)
+
+le card avranno un bordo di 2px azzurro chiaro, il bottone azzurro chiaro e testo default
+
+5) Implementa la sezione "Welcome Summer". Qui mostrerai 6 destinazioni al tuo utente. (nessun bordo, ma stesso stile dei bottoni precedenti)
+
+In questa sezione dovranno esserci:
+
+6 card per destinazioni per linea a schermo extra large
+3 card per destinazioni per linea a schermo grande (desktop)
+2 card per destinazioni per linea a schermo medio (tablet)
+2 card per destinazioni per linea a schermo piccolo (mobile)
+
+6) Implementa la sezione "Offerta del giorno". Qui avrai:
+
+66% dello spazio dedicato all'immagine del luogo di destinazione
+33% dedicato al nome, date, prezzo e un badge con "best offer" come testo
+
+l'immagine avrà i bordi arrotondati e un'ombra leggera
+per il contenuto: il nome dovrà essere più grande del resto,
+le date dovranno essere formattate con font "monospace",
+il prezzo dovrà essere definito come "lead"
+e il badge sarà scuro
+
+
+7) Rendi invisibile la sezione "Offerta del giorno" su schermi piccoli.
+
+8) Aggiungi nella sezione "Welcome Summer" un'ombra grande ad ogni card.
+
+9) Crea una sezione "Last Minute", in cui mostrerai 6 immagini delle destinazioni last minute come rettangoli ombreggiati dai bordi arrotondati, senza testo. Rendile responsive come preferisci!
+
+10) Crea una sezione "Recensioni", dove l'utente potrà trovare alcuni feedback da utenti fittizi. 
+Piccola immagine tonda a sinistra con bordo 2px azzurro, nome utente e recensione a destra
+
+11) Crea un footer con le informazioni dell'agenzia e un bottone "Contattaci".
+
+
+
+EXTRAS
+
+12) Crea un bottone vicino ad ogni sezione per collassarla e riaprirla se premuto.
+
+13) Crea la possibilità di contare il numero di "viaggi" presenti sulla pagina e visualizzare il risultato in un alert.
+
+14) Crea un modale con un campo email e un messaggio.
+
+15) Quando l'utente cliccherà su "Contattaci", il modale dovrà essere visualizzato.
+
+16) Crea una funzione che aggiunga un badge con la scritta "HOT" su ognuna delle offerte "Welcome Summer" posizionato in alto a destra.
+
+17) Crea una funzione che rimuova tutte le "card" dalla pagina
+
+-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploreIt!</title>
+    <meta name="description" content="Scopri le destinazioni più calde del momento!">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-warning">
+            <a class="navbar-brand" href="#">ExploreIt!</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Saldi</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Welcome Summer</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Last Minute</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Recensioni</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <main>        
+      <div class="intro-section mt-4 secondary bg-light rounded p-4">
+        <h1>ExploreIt!</h1>
+        <p>Il tuo viaggio a un click da te!</p>
+        <p><em>Le destinazioni migliori, nei momenti migliori, ai prezzi migliori! </em></p>
+        <a href="#" class="btn cta-button btn-primary text-white font-weight-bold">Prenota ora</a>
+      </div>
+
+      <div class="container mt-4">
+        <h2>Saldi</h2>
+        <div class="row">         
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">                
+                <img src="assets/images/bali.jpg" class="card-img-top w-100" alt="bali">                  
+                <h5 class="card-title">Bali</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/hawai.jpeg" class="card-img-top w-100" alt="hawai">
+                <h5 class="card-title">Hawai</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/sudafrica.jpeg" class="card-img-top w-100" alt="sudafrica">
+                <h5 class="card-title">Sudafrica</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/giappone.jpg" class="card-img-top w-100" alt="giappone">
+                <h5 class="card-title">Giappone</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <h2>Welcome Summer</h2>
+        <div class="row">         
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/ibiza.jpeg" class="card-img-top w-100" alt="Ibiza">
+                <h5 class="card-title">Ibiza</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/santorini.jpeg" class="card-img-top w-100" alt="Santorini">
+                <h5 class="card-title">Santorini</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/montecarlo.jpg" class="card-img-top w-100" alt="montecarlo">
+                <h5 class="card-title">Montecarlo</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/tenerife.jpeg" class="card-img-top w-100" alt="tenerife">
+                <h5 class="card-title">Tenerife</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/ladispoli.jpeg" class="card-img-top w-100" alt="ladispoli">
+                <h5 class="card-title">Ladispoli</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 mb-4 card destination-card">
+              <div class="card-body">
+                <img src="assets/images/cuba.jpeg" class="card-img-top w-100" alt="cuba">
+                <h5 class="card-title">Cuba</h5>
+                <p class="card-text">Descrizione della destinazione.</p>
+                <a href="#" class="btn btn-info text-black">Scopri di più</a>
+              </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <h2>Offerta del giorno</h2>
+        <div class="row">
+          <!-- Immagine della destinazione (66%) -->
+          <div class="col-lg-8 mb-4">
+            <img src="assets/images/mondragone.png" class="img-fluid destination-image" alt="mondragone">
+          </div>
+          <!-- Dettagli dell'offerta (33%) -->
+          <div class="col-lg-4 mb-4">
+            <div class="offer-details">
+              <h3>Mondragone</h3>
+              <p class="offer-dates">Dal 20 novembre al 20 dicembre</p>
+              <p>Prezzo: <span class="lead">4000€</span></p>
+              <span class="badge badge-dark">Best Offer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <h2>Last Minute</h2>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/amsterdam.jpeg" class="img-fluid last-minute-image" alt="amsterdam">
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/berlino.jpg" class="img-fluid last-minute-image" alt="berlino">
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/copenaghen.jpeg" class="img-fluid last-minute-image" alt="copenaghen">
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/praga.avif" class="img-fluid last-minute-image" alt="praga">
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/londra.jpeg" class="img-fluid last-minute-image" alt="londra">
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+            <img src="assets/images/parigi.jpeg" class="img-fluid last-minute-image" alt="parigi">
+          </div>         
+        </div>
+      </div>
+
+      <div class="container mt-4">
+        <h2>Recensioni</h2>
+        <div class="row">
+          <div class="col-lg-12 review d-flex align-items-center">
+            <div class="rounded-circle m-2">
+            <img src="assets/images/utente.png" class="user-avatar" alt="Utente">
+              <div>
+                <h5>Chiara</h5>
+                <p>Recensione dell'utente. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          <div class="col-lg-12 review d-flex align-items-center">
+            <div class="rounded-circle m-2">
+              <img src="assets/images/utente1.avif" class="user-avatar" alt="Utente">
+              <div>
+                <h5>Antonio</h5>
+                <p>Recensione dell'utente. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          <div class="col-lg-12 review d-flex align-items-center">
+            <div class="rounded-circle m-2">
+              <img src="assets/images/utente2.avif" class="user-avatar w-25" alt="Utente">
+              <div>
+                <h5>Girolamo</h5>
+                <p>Recensione dell'utente. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer mt-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Informazioni Agenzia di Viaggi</h5>
+              <p>Indirizzo: Via Viaggio, 123 - Città</p>
+              <p>Email: info@agenziaviaggi.com</p>
+              <p>Telefono: 0123456789</p>
+            </div>
+            <div class="col-md-6">
+              <button class="contact-button">Contattaci</button>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="assets/js/bootstrap.js"></script>
+      <script src="assets/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
